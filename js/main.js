@@ -5,7 +5,6 @@ const imageElem = document.querySelector('#image');
 const authorElem = document.querySelector('#author');
 
 function changeQuote(){
-  console.log(photos)
   const index = Math.floor(Math.random()*photos.length);
   imageElem.innerHTML = `<img class="img-fluid"  src="${photos[index].download_url}" alt="">`
   authorElem.textContent = photos[index].author;
