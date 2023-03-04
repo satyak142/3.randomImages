@@ -5,16 +5,15 @@ const imageElem = document.querySelector('#image');
 const authorElem = document.querySelector('#author');
 
 function changeQuote(){
+  console.log(photos)
   const index = Math.floor(Math.random()*photos.length);
-  console.log(imageElem ,photos[index])
   imageElem.innerHTML = `<img class="img-fluid"  src="${photos[index].download_url}" alt="">`
   authorElem.textContent = photos[index].author;
   
 };
 
 let photos = [];
-
-fetch("https://picsum.photos/v2/list/")
+fetch("https://picsum.photos/v2/list?page=1&limit=100")
   .then(response => response.json()) // Parse the JSON data
   .then(data => {
     photos.push(...data)
